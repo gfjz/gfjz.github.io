@@ -4554,11 +4554,11 @@ h1.page-title + .tag-cloud-list {
   transition: box-shadow 0.3s ease-in-out;
   overflow: hidden;
   border-radius: 12px !important;
-  background: -webkit-linear-gradient(45deg, #f6d8f5, #c2f1f0, #f0debf);
-  background: -moz-linear-gradient(45deg, #f6d8f5, #c2f1f0, #f0debf);
-  background: -o-linear-gradient(45deg, #f6d8f5, #c2f1f0, #f0debf);
-  background: -ms-linear-gradient(45deg, #f6d8f5, #c2f1f0, #f0debf);
-  background: linear-gradient(45deg, #f6d8f5, #c2f1f0, #f0debf);
+  background: -webkit-linear-gradient(45deg, #d8ffff, #c2f1f0, #f0debf);
+  background: -moz-linear-gradient(45deg, #d8ffff, #c2f1f0, #f0debf);
+  background: -o-linear-gradient(45deg, #d8ffff, #c2f1f0, #f0debf);
+  background: -ms-linear-gradient(45deg, #d8ffff, #c2f1f0, #f0debf);
+  background: linear-gradient(45deg, #d8ffff, #c2f1f0, #f0debf);
 }
 #post .post-copyright:before {
   background: var(--heo-post-blockquote-bg);
