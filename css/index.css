@@ -9515,28 +9515,6 @@ hr:before {
   transition: all 0.3s ease-in-out;
 }
 
-/* 文章页背景 */
-.layout_post>#post {
-  /* 以下代表透明度为0.5 可以自行修改*/
-  background: rgba(255,255,255,.6);
-}
-​
-/* 所有页面背景 */
-#aside_content .card-widget, #recent-posts>.recent-post-item, .layout_page>div:first-child:not(.recent-posts), .layout_post>#page, .layout_post>#post, .read-mode .layout_post>#post{
-  /* 以下代表透明度为0.5 */
-  background: rgba(255,255,255,.6);
-}
-/*侧边栏页面*/
-#aside-content>.card-widget  {
-  background: rgba(255,255,255,.6);
-}
-#aside-content>.sticky_layout>.card-widget{
-  background: rgba(255,255,255,.6);
-}
-/*文章页面*/
-.layout>#post{
-  background: rgba(255,255,255,.6);
-}
 .search-dialog {
   position: fixed;
   top: 10%;
