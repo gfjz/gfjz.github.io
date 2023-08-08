@@ -3,8 +3,8 @@ window.addEventListener('load', () => {
     const bodyStyle = document.body.style
     bodyStyle.width = '100%'
     bodyStyle.overflow = 'hidden'
-    btf.animateIn(document.getElementById('search-mask'), 'to_show 0.5s')
-    btf.animateIn(document.querySelector('#algolia-search .search-dialog'), 'titleScale 0.5s')
+    acy.animateIn(document.getElementById('search-mask'), 'to_show 0.5s')
+    acy.animateIn(document.querySelector('#algolia-search .search-dialog'), 'titleScale 0.5s')
     setTimeout(() => { document.querySelector('#algolia-search .ais-SearchBox-input').focus() }, 100)
 
     // shortcut: ESC
@@ -20,8 +20,8 @@ window.addEventListener('load', () => {
     const bodyStyle = document.body.style
     bodyStyle.width = ''
     bodyStyle.overflow = ''
-    btf.animateOut(document.querySelector('#algolia-search .search-dialog'), 'search_close .5s')
-    btf.animateOut(document.getElementById('search-mask'), 'to_hide 0.5s')
+    acy.animateOut(document.querySelector('#algolia-search .search-dialog'), 'search_close .5s')
+    acy.animateOut(document.getElementById('search-mask'), 'to_hide 0.5s')
   }
 
   const searchClickFn = () => {
@@ -81,8 +81,7 @@ window.addEventListener('load', () => {
   const searchBox = instantsearch.widgets.searchBox({
     container: '#algolia-search-input',
     showReset: false,
-    showSubmit: true, // 设为true 可以通过按钮搜索
-    searchAsYouType: false, // 新增 可以实现回车或点击按钮搜索，不会每次输入都搜索
+    showSubmit: false,
     placeholder: GLOBAL_CONFIG.algolia.languages.input_placeholder,
     showLoadingIndicator: true
   })
