@@ -19051,28 +19051,19 @@ details .content > *:nth-child(1) {
   height: 100vh;
   top: 0;
   left: 0;
+  z-index: 9999;
   justify-content: center;
   opacity: 0;
   transition: 0.3s ease-out;
   flex-direction: column;
   align-items: center;
   pointer-events: none;
-  margin: 0 !important;
-  font-size: var(--global-font-size);
-  z-index: 2;
-}
-#console-music-bg {
-  display: none;
+  -webkit-user-select: none;
 }
 
-#console.show,
-#console.reward-show {
+#console.show {
   opacity: 1;
   pointer-events: all;
-}
-
-#console.reward-show .console-card-group {
-  pointer-events: none;
 }
 
 #console .console-card-group {
@@ -19080,11 +19071,11 @@ details .content > *:nth-child(1) {
   justify-content: space-between;
   align-items: center;
   margin: 0 30px;
+  max-width: 2000px;
   transform: translateY(20px);
   transition: 0.3s;
   opacity: 0;
-  max-width: 80%;
-  max-height: 70%;
+  max-width: 1400px;
 }
 
 #console.show .console-card-group {
@@ -19092,6 +19083,7 @@ details .content > *:nth-child(1) {
   opacity: 1;
   transition-delay: 0.1s;
 }
+
 
 #console .console-card-group-left {
   margin-right: 0.5rem;
@@ -19102,14 +19094,61 @@ details .content > *:nth-child(1) {
 #console .console-card-group-right {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   height: 100%;
   width: 60%;
   overflow: hidden;
 }
 
+@media screen and (max-width: 1300px) {
+  #console .console-card-group {
+    justify-content: center;
+  }
+
+  #console .console-card-group-left {
+    display: none;
+  }
+
+  #console .console-card-group-right {
+    width: 100%;
+    margin: 0;
+  }
+
+  #consoleMusic {
+    display: none;
+  }
+
+  #consoleCommentBarrage {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #console .console-card-group {
+    display: none;
+  }
+
+  #consoleHideAside {
+    display: none;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  #console .console-card-group {
+    display: none;
+  }
+
+  #consoleMusic {
+    display: none;
+  }
+
+  #consoleCommentBarrage {
+    display: none;
+  }
+}
+
 #console .console-card {
-  background: var(--card-bg);
+  background: var(--anzhiyu-maskbg);
   border-radius: 12px;
   overflow: hidden;
   border: var(--style-border);
@@ -19121,25 +19160,27 @@ details .content > *:nth-child(1) {
   height: calc(100% - 172px);
 }
 
+
 #console .console-mask {
   background: var(--anzhiyu-maskbgdeep);
-  backdrop-filter: saturate(100%) blur(0px);
-  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
   position: absolute;
   z-index: -1;
-  transition: 0.3s;
-  margin: 0px !important;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform: translateZ(0);
 }
 
-#console.show .console-mask,
-#console.reward-show .console-mask {
+#console.show .console-mask {
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transform: translateZ(0);
+  animation: 0.6s ease 0s 1 normal none running to_show;
 }
 
 #card-newest-comments .aside-list-item .thumbnail img {
@@ -19159,6 +19200,12 @@ details .content > *:nth-child(1) {
   flex-direction: column;
   height: 150px;
   transition: 0.3s;
+  position: relative;
+}
+
+#card-newest-comments .aside-list-item:hover {
+  background: var(--anzhiyu-theme);
+  color: var(--anzhiyu-white);
 }
 
 #card-newest-comments .aside-list-item:not(:last-child) {
@@ -19169,18 +19216,17 @@ details .content > *:nth-child(1) {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  width: 130px;
   font-weight: bold;
 }
 
 #console .author-content-item-tips {
-  opacity: 0.8;
-  font-size: 0.6rem;
-  margin-bottom: 0.5rem;
+  opacity: .8;
+  font-size: .6rem;
+  margin-bottom: .5rem;
 }
 
 #console .author-content-item-title {
-  font-size: 27px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 1;
 }
@@ -19188,7 +19234,10 @@ details .content > *:nth-child(1) {
 #console .aside-list-item .thumbnail {
   display: flex;
   align-items: center;
-  width: fit-content;
+}
+
+#console .aside-list-item:hover .thumbnail {
+  color: var(--anzhiyu-white);
 }
 
 #console .aside-list-item .content {
@@ -19198,11 +19247,6 @@ details .content > *:nth-child(1) {
   margin-top: 0.5rem;
 }
 
-#card-newest-comments .aside-list-item:hover {
-  background: var(--anzhiyu-main);
-  color: var(--anzhiyu-white);
-}
-
 #console .aside-list-item .content .comment {
   -webkit-line-clamp: 2;
   display: -webkit-box;
@@ -19210,17 +19254,28 @@ details .content > *:nth-child(1) {
   -webkit-box-orient: vertical;
   line-height: 24px;
   font-size: 14px;
-  border-radius: 0px;
 }
 
-#console .aside-list-item:hover .thumbnail,
+#console .aside-list-item .content .comment::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 #console .aside-list-item:hover .content .comment {
   color: var(--anzhiyu-white);
 }
 
 #console .aside-list-item .content time {
   font-size: 12px;
+  color: var(--anzhiyu-secondtext);
   margin-top: auto;
+}
+
+#console .aside-list-item:hover .content time {
   color: var(--anzhiyu-white);
 }
 
@@ -19229,7 +19284,7 @@ details .content > *:nth-child(1) {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
 }
 
 #console .button-group {
@@ -19250,10 +19305,14 @@ details .content > *:nth-child(1) {
   margin-right: 0.5rem;
 }
 
+#console .button-group .console-btn-item:hover a {
+  background: var(--anzhiyu-main);
+}
+
 #console .button-group .console-btn-item a {
   width: 100%;
   height: 100%;
-  background: var(--card-bg);
+  background: var(--anzhiyu-card-bg);
   border: var(--style-border);
   border-radius: 60px;
   display: flex;
@@ -19262,10 +19321,22 @@ details .content > *:nth-child(1) {
   color: var(--anzhiyu-fontcolor);
 }
 
+#console .button-group .console-btn-item a i {
+  font-size: 24px;
+}
+
 #console .button-group .console-btn-item.on a {
   background: var(--anzhiyu-orange);
   color: var(--anzhiyu-white);
   transition: 0.3s;
+}
+
+#console .button-group .console-btn-item:not(.on) a:hover {
+  background: var(--anzhiyu-main) !important;
+}
+
+#console .button-group .console-btn-item:hover a {
+  color: var(--anzhiyu-white);
 }
 
 .console-card.tags .card-tag-cloud {
@@ -19279,7 +19350,7 @@ details .content > *:nth-child(1) {
   margin: 6px 4px;
   padding: 2px 8px;
   border-radius: 8px;
-  background: var(--anzhiyu-secondbg);
+  background: var(--anzhiyu-card-bg);
   border: var(--style-border);
   font-size: 14px !important;
   font-weight: bold;
@@ -19294,6 +19365,42 @@ details .content > *:nth-child(1) {
   opacity: 0.6;
 }
 
+#console .close-btn {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  right: max(0, calc((100% - 1400px) / 2));
+  top: 0;
+  font-size: 35px;
+  color: var(--anzhiyu-fontcolor);
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1400px;
+}
+
+#console .close-btn i {
+  font-size: 32px;
+  margin-right: 1.5rem;
+  margin-left: auto;
+  transition: 0.3s;
+  line-height: 1;
+  transform: rotate(-30deg);
+  transition: 0.6s;
+}
+
+#console.show .close-btn i {
+  transform: rotate(0deg);
+}
+
+#console .close-btn i:hover {
+  color: var(--anzhiyu-hovertext);
+  background: var(--anzhiyu-main-op);
+  border-radius: 32px;
+}
+
 #console .console-card.history {
   margin-top: 8px;
   padding: 0;
@@ -19301,6 +19408,7 @@ details .content > *:nth-child(1) {
   box-shadow: none;
   border: none;
   overflow: hidden;
+  border-radius: 0;
 }
 
 #console .console-card.history .item-headline {
@@ -19312,6 +19420,7 @@ details .content > *:nth-child(1) {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+  height: 164px;
 }
 
 #console .console-card.history .card-archive-list li.card-archive-list-item {
@@ -19320,12 +19429,12 @@ details .content > *:nth-child(1) {
 
 #console .console-card.history .card-archive-list .card-archive-list-link {
   border-radius: 8px;
-  margin: 4px 0;
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
   align-content: space-between;
   border: var(--style-border);
-  background: var(--card-bg);
+  background: var(--anzhiyu-maskbgdeep);
   padding: 8px 16px;
 }
 
@@ -19340,25 +19449,6 @@ details .content > *:nth-child(1) {
 
 #console .button-group i {
   font-size: 1rem;
-}
-
-#console hr {
-  display: none;
-}
-
-#console ul {
-  padding-left: 0;
-}
-#console ul li {
-  list-style: none;
-}
-#console .console-card.history ul.card-archive-list {
-  margin: 2px;
-}
-
-[data-theme="dark"] #console .button-group .console-btn-item a.darkmode_switchbutton {
-  background: var(--anzhiyu-orange);
-  color: var(--anzhiyu-white);
 }
 
 /* 控制台音乐css */
