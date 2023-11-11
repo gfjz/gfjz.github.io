@@ -209,7 +209,7 @@ if (true) {
 <h1>2.天气预测（一定要准）</h1>
 <h1>3.实用工具网站（一定不要收费）</h1>
 <div class="note primary simple"><p>欢迎投稿符合要求的网站，可以在评论区发送链接，名称与网站图标哦！</p>
-</div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81ODc4NS8zNTI0Nw=="></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-top" title="点击展开"><div class="card-info-avatar"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://z1.ax1x.com/2023/09/16/pPftzbF.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-status-box"><div class="author-status"><g-emoji class="g-emoji" alias="writing_hand" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/270d.png">✍️</g-emoji><span>on Studying</span></div></div></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="card-widget card-categories"><div class="item-headline">
+</div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a></div></div><div class="comment-wrap"><div><div id="gitalk-container"> </div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-top" title="点击展开"><div class="card-info-avatar"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://z1.ax1x.com/2023/09/16/pPftzbF.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-status-box"><div class="author-status"><g-emoji class="g-emoji" alias="writing_hand" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/270d.png">✍️</g-emoji><span>on Studying</span></div></div></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="anzhiyufont anzhiyu-icon-folder-open"></i>
             <span>分类</span>
             
@@ -381,29 +381,48 @@ queueMicrotask(() => {
     updateTime();
     updateHtml();
   }, 1000);
-})();</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadLivere () {
-  if (typeof LivereTower === 'object') {
-    window.LivereTower.init()
+})();</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.cbd.int/gitalk@1.7.2/dist/gitalk.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '831990d6f8ad3b5d8385',
+      clientSecret: '4eff7d7ce5998be475528e68a88598a6a38d1a7e',
+      repo: 'gfjz.github.io',
+      owner: 'gfjz',
+      admin: ['gfjz'],
+      id: '302c7267464e3e5d2918b580dba6ef64',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
   }
+
+  if (typeof Gitalk === 'function') initGitalk()
   else {
-    (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-    })(document, 'script');
+    addGitalkSource()
+    getScript('https://cdn.cbd.int/gitalk@1.7.2/dist/gitalk.min.js').then(initGitalk)
   }
 }
 
-if ('Livere' === 'Livere' || !true) {
-  if (true) btf.loadComment(document.getElementById('lv-container'), loadLivere)
-  else loadLivere()
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
 }
-else {
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
   function loadOtherComment () {
-    loadLivere()
+    loadGitalk()
   }
 }</script><input type="hidden" name="page-type" id="page-type" value="anzhiyu"></div><script>var visitorMail = "visitor@anheyu.com";</script><script>//动态标题
 let leaveTitle = 'w(ﾟДﾟ)w 不要走！再看看嘛！';
